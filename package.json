@@ -1,10 +1,8 @@
 {
   "name": "nl-covid19-data-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
   "repository": {
     "type": "git",
@@ -18,6 +16,9 @@
   },
   "homepage": "https://github.com/yorickdevries/nl-covid19-data-api#readme",
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "morgan": "~1.9.1"
   }
 }
