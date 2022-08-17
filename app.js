@@ -30,6 +30,11 @@ app.use(cookieParser());
 app.use('/api', apiRouter);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
+// default redirect to api-docs
+app.get('/', function(req, res, next) {
+  res.redirect('/api-docs');
+});
+
 // catch 404
 app.use(function(req, res, next) {
   res.sendStatus(404);
