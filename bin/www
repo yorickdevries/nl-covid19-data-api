@@ -6,6 +6,7 @@
 
 var app = require('../app');
 var http = require('http');
+var { downloadLatestData } = require('../downloadLatestData');
 
 /**
  * Get port from environment and store in Express.
@@ -21,12 +22,15 @@ app.set('port', port);
 var server = http.createServer(app);
 
 /**
+ * Download latest data, then:
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+ const latestDataPath = downloadLatestData().then(() => {
+  server.listen(port);
+  server.on('error', onError);
+  server.on('listening', onListening);
+})
 
 /**
  * Normalize a port into a number, string, or false.
