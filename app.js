@@ -15,7 +15,7 @@ app.use('/api', apiRouter);
 
 // catch 404
 app.use(function(req, res, next) {
-  res.status(404);
+  res.sendStatus(404);
 });
 
 // error handler
@@ -25,7 +25,7 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  res.status(err.status || 500);
+  res.sendStatus(err.status || 500);
 });
 
 module.exports = app;
